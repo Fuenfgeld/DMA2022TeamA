@@ -1,36 +1,4 @@
-DROP TABLE IF EXISTS tb_medications; 
-
-DROP TABLE IF EXISTS tb_supplies; 
-
-DROP TABLE IF EXISTS tb_procedures; 
-
-DROP TABLE IF EXISTS tb_observations; 
-
-DROP TABLE IF EXISTS tb_immunizations; 
-
-DROP TABLE IF EXISTS tb_imaging_studies; 
-
-DROP TABLE IF EXISTS tb_disease; 
-
-DROP TABLE IF EXISTS tb_devices; 
-
-DROP TABLE IF EXISTS tb_conditions; 
-
-DROP TABLE IF EXISTS tb_careplans; 
-
-DROP TABLE IF EXISTS tb_encounters; 
-
-DROP TABLE IF EXISTS tb_payer_transitions; 
-
-DROP TABLE IF EXISTS tb_payers; 
-
-DROP TABLE IF EXISTS tb_providers; 
-
-DROP TABLE IF EXISTS tb_organizations; 
-
-DROP TABLE IF EXISTS tb_patients; 
-
-CREATE TABLE tb_patients 
+CREATE TABLE patients 
   ( 
      id                  NVARCHAR(256), 
      birthdate           DATE DEFAULT NULL, 
@@ -61,7 +29,7 @@ CREATE TABLE tb_patients
      PRIMARY KEY (id, dataset_origin) 
   ); 
 
-CREATE TABLE tb_organizations 
+CREATE TABLE organizations 
   ( 
      id             NVARCHAR(256), 
      name           NVARCHAR (256) DEFAULT NULL, 
@@ -78,7 +46,7 @@ CREATE TABLE tb_organizations
      PRIMARY KEY (id, dataset_origin) 
   );   
 
-CREATE TABLE tb_providers 
+CREATE TABLE providers 
   ( 
      id                NVARCHAR(256), 
      organization_id   NVARCHAR(256),
@@ -98,7 +66,7 @@ CREATE TABLE tb_providers
      FOREIGN KEY (organization_id, organization_dso) REFERENCES tb_organizations(id, dataset_origin)
   ); 
   
-CREATE TABLE tb_payers 
+CREATE TABLE payers 
   ( 
      id                      NVARCHAR(256), 
      name                    NVARCHAR(256) DEFAULT NULL, 
@@ -125,7 +93,7 @@ CREATE TABLE tb_payers
      PRIMARY KEY (id, dataset_origin) 
   ); 
   
-CREATE TABLE tb_payer_transitions 
+CREATE TABLE payer_transitions 
   ( 
      patient_id     NVARCHAR(256), 
      patient_dso    NVARCHAR(256), 
@@ -140,7 +108,7 @@ CREATE TABLE tb_payer_transitions
      FOREIGN KEY (payer_id, payer_dso) REFERENCES tb_payers(id, dataset_origin) 
   );
 
-CREATE TABLE tb_encounters 
+CREATE TABLE encounters 
   ( 
      id                   NVARCHAR(256), 
      start                TIMESTAMP DEFAULT NULL, 
@@ -169,7 +137,7 @@ CREATE TABLE tb_encounters
      FOREIGN KEY (payer_id, payer_dso) REFERENCES tb_payers(id, dataset_origin) 
   );
 
-CREATE TABLE tb_careplans 
+CREATE TABLE careplans 
   ( 
      id                NVARCHAR(256), 
      start             DATE DEFAULT NULL, 
@@ -188,7 +156,7 @@ CREATE TABLE tb_careplans
      FOREIGN KEY (encounter_id, encounter_dso) REFERENCES tb_encounters (id, dataset_origin) 
   );   
 
-CREATE TABLE tb_conditions 
+CREATE TABLE conditions 
   ( 
      start          DATE, 
      stop           DATE, 
@@ -204,7 +172,7 @@ CREATE TABLE tb_conditions
      FOREIGN KEY (encounter_id, encounter_dso) REFERENCES tb_encounters (id, dataset_origin) 
   );
 
-CREATE TABLE tb_devices 
+CREATE TABLE devices 
   ( 
      start          TIMESTAMP, 
      stop           TIMESTAMP, 
@@ -221,7 +189,7 @@ CREATE TABLE tb_devices
      FOREIGN KEY (encounter_id, encounter_dso) REFERENCES tb_encounters (id, dataset_origin) 
   );
 
-CREATE TABLE tb_disease 
+CREATE TABLE disease 
   ( 
      start          DATE, 
      stop           DATE, 
@@ -237,7 +205,7 @@ CREATE TABLE tb_disease
      FOREIGN KEY (encounter_id, encounter_dso) REFERENCES tb_encounters (id, dataset_origin) 
   );
 
-CREATE TABLE tb_imaging_studies 
+CREATE TABLE imaging_studies 
   ( 
      id                   NVARCHAR(256), 
      date                 DATE DEFAULT NULL, 
@@ -257,7 +225,7 @@ CREATE TABLE tb_imaging_studies
      FOREIGN KEY (encounter_id, encounter_dso) REFERENCES tb_encounters (id, dataset_origin) 
   );
 
-CREATE TABLE tb_immunizations 
+CREATE TABLE immunizations 
   ( 
      date           TIMESTAMP, 
      patient_id     NVARCHAR(256), 
@@ -273,7 +241,7 @@ CREATE TABLE tb_immunizations
      FOREIGN KEY (encounter_id, encounter_dso) REFERENCES tb_encounters (id, dataset_origin) 
   );
 
-CREATE TABLE tb_observations 
+CREATE TABLE observations 
   ( 
      Id             INTEGER PRIMARY KEY AUTOINCREMENT,        
      date           TIMESTAMP, 
@@ -291,7 +259,7 @@ CREATE TABLE tb_observations
      FOREIGN KEY (encounter_id, encounter_dso) REFERENCES tb_encounters (id, dataset_origin) 
   );
 
-CREATE TABLE tb_procedures 
+CREATE TABLE procedures 
   ( 
      date              TIMESTAMP, 
      patient_id        NVARCHAR(256), 
@@ -309,7 +277,7 @@ CREATE TABLE tb_procedures
      FOREIGN KEY (encounter_id, encounter_dso) REFERENCES tb_encounters (id, dataset_origin) 
   );
 
-CREATE TABLE tb_supplies 
+CREATE TABLE supplies 
   ( 
      Id             INTEGER PRIMARY KEY AUTOINCREMENT,
      date           DATE, 
@@ -325,7 +293,7 @@ CREATE TABLE tb_supplies
      FOREIGN KEY (encounter_id, encounter_dso) REFERENCES tb_encounters (id, dataset_origin) 
   );
 
-CREATE TABLE tb_medications 
+CREATE TABLE medications 
   ( 
      start             TIMESTAMP, 
      stop              TIMESTAMP, 
