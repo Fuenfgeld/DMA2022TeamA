@@ -1,3 +1,35 @@
+DROP TABLE IF EXISTS tb_medications; 
+
+DROP TABLE IF EXISTS tb_supplies; 
+
+DROP TABLE IF EXISTS tb_procedures; 
+
+DROP TABLE IF EXISTS tb_observations; 
+
+DROP TABLE IF EXISTS tb_immunizations; 
+
+DROP TABLE IF EXISTS tb_imaging_studies; 
+
+DROP TABLE IF EXISTS tb_disease; 
+
+DROP TABLE IF EXISTS tb_devices; 
+
+DROP TABLE IF EXISTS tb_conditions; 
+
+DROP TABLE IF EXISTS tb_careplans; 
+
+DROP TABLE IF EXISTS tb_encounters; 
+
+DROP TABLE IF EXISTS tb_payer_transitions; 
+
+DROP TABLE IF EXISTS tb_payers; 
+
+DROP TABLE IF EXISTS tb_providers; 
+
+DROP TABLE IF EXISTS tb_organizations; 
+
+DROP TABLE IF EXISTS tb_patients; 
+
 CREATE TABLE tb_patients 
   ( 
      id                  NVARCHAR(256), 
