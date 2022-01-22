@@ -99,7 +99,7 @@ SELECT
                            encounters.DESCRIPTION AS encounter_DESCRIPTION,
                            encounters.REASONCODE AS encounter_REASONCODE,
                            encounters.REASONDESCRIPTION AS encounter_REASONDESCRIPTION,
-                           encounters.BASE_ENCOUNTER_COST 
+                           encounters.BASE_ENCOUNTER_COST,
                         FROM
                            encounters 
                            LEFT JOIN
