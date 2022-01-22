@@ -1,4 +1,5 @@
-CREATE View_1 AS 
+DROP VIEW IF EXISTS v_encounters_plus;
+CREATE VIEW v_encounters_plus AS 
 SELECT
    encounter_procedures.Id,
    encounter_procedures.DATASET_ORIGIN,
