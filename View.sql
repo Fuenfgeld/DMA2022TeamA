@@ -38,7 +38,7 @@ SELECT
          procedures.DESCRIPTION AS procedure_DESCRIPTION,
          procedures.REASONCODE AS procedure_REASONCODE,
          procedures.REASONDESCRIPTION AS procedure_REASONDESCRIPTION,
-         procedures.BASE_COST AS BASE_PROCEDURE_COST 
+         procedures.BASE_COST AS BASE_PROCEDURE_COST, 
       FROM
          (
             SELECT
