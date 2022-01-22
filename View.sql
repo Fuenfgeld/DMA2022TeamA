@@ -30,7 +30,7 @@ SELECT
    encounter_procedures.BASE_ENCOUNTER_COST,
    encounter_procedures.BASE_IMMUNIZATION_COST,
    encounter_procedures.BASE_PROCEDURE_COST,
-   FROM
+FROM
    (
       SELECT
          procedures.DATE AS procedure_DATE,
@@ -61,7 +61,7 @@ SELECT
                encounters_conditions.condition_CODE,
                encounters_conditions.condition_DESCRIPTION,
                encounters_conditions.BASE_ENCOUNTER_COST,
-               FROM
+            FROM
                (
                   SELECT
                      encounters_payer_transitions.Id,
@@ -82,7 +82,7 @@ SELECT
                      conditions.STOP AS condition_STOP,
                      conditions.CODE AS condition_CODE,
                      conditions.DESCRIPTION AS condition_DESCRIPTION,
-                     FROM
+                  FROM
                      (
                         SELECT
                            encounters.Id,
