@@ -1,4 +1,4 @@
-CREATE View AS 
+CREATE View_1 AS 
 SELECT
    encounter_procedures.Id,
    encounter_procedures.DATASET_ORIGIN,
