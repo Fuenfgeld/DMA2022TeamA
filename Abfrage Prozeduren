@@ -1,0 +1,15 @@
+#Anzahl der Prozeduren
+import sqlite3
+connection = sqlite3.connect("Datawarehouse.db")
+
+cursor = connection.cursor()
+
+cursor.execute("SELECT count(code) as COVID FROM dimProcedures where date >'2020-01-01 00:00:00' and Date <'2020-12-31 23:59:59'") 
+print("fetchall:")
+result = cursor.fetchall() 
+for r in result:
+    print(r)
+cursor.execute("SELECT count(code)as Precovid2019 FROM dimProcedures where date >'2019-01-01 00:00:00' and Date <'2019-12-31 23:59:59'") 
+print("\nfetch one:")
+res = cursor.fetchone() 
+print(res)
