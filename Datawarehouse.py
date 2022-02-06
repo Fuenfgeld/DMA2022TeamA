@@ -7,10 +7,6 @@ Original file is located at
     https://colab.research.google.com/github/Fuenfgeld/DMA2022TeamA/blob/main/Datawarehouse.ipynb
 """
 
-#Erstellen der Quelldatenbank 
-import requests
-exec(requests.get('https://raw.githubusercontent.com/Fuenfgeld/DMA2022TeamA/main/quelldatenbank.py').text)
-
 # Initialisierung der Datawarehouse-Tabellen:
 Datawh_Tabellen = {}
 
