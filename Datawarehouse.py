@@ -28,7 +28,8 @@ Datawh_Tabellen['dimObservations'] = """
     CODE VARCHAR,
     DESCRIPTION VARCHAR,
     VALUE VARCHAR,
-    UNITS VARCHAR
+    UNITS VARCHAR, 
+    DATE TIMESTAMP
   );
 """
 
@@ -148,7 +149,7 @@ Zentrum.head(3)
 
 #Einfügen der Werte in Observations
 dimObservations = pd.read_sql_query("""
-Select ID, CODE, DESCRIPTION, VALUE, UNITS from observations
+Select ID, CODE, DESCRIPTION, VALUE, UNITS, DATE from observations
 where observations.code in ("8480-6","8462-4","9279-1","8867-4","3569","8310-5","1975-2","1920-8","1742-6","6768-6","33914-3","2885-2","3094-0","94531-1", "2703-7", "2708-6")
 ;""", conn
   )
