@@ -22,7 +22,7 @@ conn = sq.connect('quelldatenbank.db')
 cur = conn.cursor()
 
 # Erstellen der Tabellen
-sql_create_source_data = requests.get('https://raw.githubusercontent.com/Fuenfgeld/DMA2022TeamA/main/Create_statements.sql').text
+sql_create_source_data = requests.get('https://raw.githubusercontent.com/Fuenfgeld/DMA2022TeamA/main/SQL/SQLQuelldatenbank.sql').text
 cur.executescript(sql_create_source_data)
 conn.commit()
 print("Tabellen erfolgreich erstellt")
